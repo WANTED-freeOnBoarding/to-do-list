@@ -24,7 +24,9 @@ const TodoItem = ({ toggleTodo, removeTodo, todo }: TodoItemProps) => {
       <CheckCircle done={todo.done} onClick={handleToggle}>
         {todo.done && <CheckOutlined />}
       </CheckCircle>
-      <Text done={todo.done}>{todo.text}</Text>
+      <Text done={todo.done}>
+        <div>{todo.text}</div> <div>완료 목표일 : {todo.date || "없음"}</div>
+      </Text>
       <Remove onClick={handleRemove}>
         <DeleteOutlined />
       </Remove>
@@ -75,6 +77,9 @@ const Text = styled.div<{ done: boolean }>`
   flex: 1;
   font-size: 16px;
   color: #119955;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
   ${(props) =>
     props.done &&
     css`

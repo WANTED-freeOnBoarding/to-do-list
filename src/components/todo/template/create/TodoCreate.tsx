@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
+import { DatePicker, Space } from "antd";
+import moment from "moment";
 
 interface TodoCreateProps {
   nextId: number;
@@ -16,6 +18,7 @@ const TodoCreate = ({
 }: TodoCreateProps) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
 
   const handleToggle = () => setOpen(!open);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -28,6 +31,7 @@ const TodoCreate = ({
       id: nextId,
       text: value,
       done: false,
+      date: selectedDate,
     });
     incrementNextId(); // nextId 하나 증가
 
@@ -35,10 +39,21 @@ const TodoCreate = ({
     setOpen(false); // open 닫기
   };
 
+  function onChange(date: any, dateString: string) {
+    console.log(date, dateString);
+    setSelectedDate(dateString);
+  }
+
   return (
     <>
       <InsertFormPositioner>
         <InsertForm onSubmit={handleSubmit}>
+          <Space direction="horizontal">
+            <DatePicker
+              style={{ height: "60px", marginRight: "12px" }}
+              onChange={onChange}
+            />
+          </Space>
           <Input
             autoFocus
             placeholder="What's need to be done?"
@@ -90,7 +105,7 @@ const InsertForm = styled.form`
 const Input = styled.input`
   padding: 12px;
   border: 1px solid #dddddd;
-  width: 100%;
+  width: 70%;
   outline: none;
   font-size: 21px;
   box-sizing: border-box;
