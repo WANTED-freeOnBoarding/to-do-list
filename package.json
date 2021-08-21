@@ -1,33 +1,39 @@
 {
   "name": "todo-list",
   "version": "1.0.0",
+  "private": "true",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@types/styled-components": "^5.1.12",
     "antd": "^4.16.12",
+    "deploy": "^1.0.3",
     "moment": "^2.29.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-scripts": "4.0.0",
+    "react-scripts": "^4.0.3",
     "styled-components": "^5.3.0",
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
+    "gh-pages": "^3.2.3",
     "typescript": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "http://WANTED-freeOnBoarding.github.io/to-do-list"
 }
