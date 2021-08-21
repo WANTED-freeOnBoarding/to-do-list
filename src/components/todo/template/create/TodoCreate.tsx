@@ -58,7 +58,7 @@ interface TodoCreateProps {
 const TodoCreate = ({
   nextId,
   createTodo,
-  incrementNextId
+  incrementNextId,
 }: TodoCreateProps) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -73,7 +73,7 @@ const TodoCreate = ({
     createTodo({
       id: nextId,
       text: value,
-      done: false
+      done: false,
     });
     incrementNextId(); // nextId 하나 증가
 
