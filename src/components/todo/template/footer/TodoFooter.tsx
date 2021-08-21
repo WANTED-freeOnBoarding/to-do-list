@@ -2,6 +2,17 @@ import { Itodo } from "components/todo/TodoService";
 import React from "react";
 import styled from "styled-components";
 
+const Todofooter = ({ todos }: HooksTodoHeadProps) => {
+  const undoneTasks = todos.filter((todo) => !todo.done);
+  return (
+    <TodoFooterBlock>
+      <LeftText className="tasks-left">
+        {undoneTasks.length} items left
+      </LeftText>
+    </TodoFooterBlock>
+  );
+};
+
 const TodoFooterBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,16 +30,5 @@ const LeftText = styled.div`
 interface HooksTodoHeadProps {
   todos: Itodo[];
 }
-
-const Todofooter = ({ todos }: HooksTodoHeadProps) => {
-  const undoneTasks = todos.filter((todo) => !todo.done);
-  return (
-    <TodoFooterBlock>
-      <LeftText className="tasks-left">
-        {undoneTasks.length} items left
-      </LeftText>
-    </TodoFooterBlock>
-  );
-};
 
 export default React.memo(Todofooter);

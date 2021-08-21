@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
 import { DatePicker, Space } from "antd";
+import { Modal, Button } from "antd";
 import moment from "moment";
 
 interface TodoCreateProps {
@@ -19,6 +20,7 @@ const TodoCreate = ({
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleToggle = () => setOpen(!open);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -27,20 +29,31 @@ const TodoCreate = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // 새로고침 방지
 
-    createTodo({
-      id: nextId,
-      text: value,
-      done: false,
-      date: selectedDate,
-    });
-    incrementNextId(); // nextId 하나 증가
+    if (value === "") {
+      setModalOpen(true);
+    } else {
+      createTodo({
+        id: nextId,
+        text: value,
+        done: false,
+        date: selectedDate,
+      });
+      incrementNextId(); // nextId 하나 증가
 
-    setValue(""); // input 초기화
-    setOpen(false); // open 닫기
+      setValue(""); // input 초기화
+      setOpen(false); // open 닫기
+    }
+  };
+
+  const handleOk = () => {
+    setModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setModalOpen(false);
   };
 
   function onChange(date: any, dateString: string) {
-    console.log(date, dateString);
     setSelectedDate(dateString);
   }
 
@@ -66,6 +79,15 @@ const TodoCreate = ({
           </CircleButton>
         </InsertForm>
       </InsertFormPositioner>
+      <Modal
+        title="!!주의!!"
+        visible={modalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        할 일을 입력해주세요
+      </Modal>
     </>
   );
 };
