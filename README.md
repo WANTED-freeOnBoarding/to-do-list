@@ -4,6 +4,8 @@ https://codesandbox.io/s/long-haze-9v8jt?file=/src/components/todo/TodoService.t
 
 위 링크의 코드를 바탕으로 버그를 수정한 후, 추가 기능을 구현하였습니다.
 
+배포 주소 : http://WANTED-freeOnBoarding.github.io/to-do-list
+
 ![todolist](https://user-images.githubusercontent.com/60090391/130322319-316aeaa2-431f-44e6-9a9b-acb1ef447868.gif)
 
 - [x] To do list CRUD 가능
