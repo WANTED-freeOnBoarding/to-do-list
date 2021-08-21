@@ -7,7 +7,7 @@ function TodoTemplate(props: any) {
 
 const TodoTemplateBlock = styled.div`
   width: 70%;
-  height: 800px;
+  height: 700px;
 
   min-width: 360px;
   max-width: 700px;
@@ -19,7 +19,7 @@ const TodoTemplateBlock = styled.div`
 
   margin: 0 auto;
 
-  margin-top: 96px;
+  margin-top: 12px;
   margin-bottom: 32px;
   display: flex;
   flex-direction: column;
