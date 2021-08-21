@@ -1,3 +1,4 @@
+import Preview from "rc-image/lib/Preview";
 import { useState, useEffect } from "react";
 
 export type Itodo = {
@@ -10,7 +11,7 @@ let initialTodos: Itodo[] = [];
 
 export const useTodo = () => {
   const [todoState, setTodoState] = useState(initialTodos);
-  var nextIdState = 0;
+  let nextIdState = 0;
 
   useEffect(() => {
     loadData();
@@ -25,12 +26,16 @@ export const useTodo = () => {
   };
 
   const toggleTodo = (id: number) => {
-    //@TODO
+    const newTodoState = todoState.find((todo: Itodo) => todo.id === id);
+    if (newTodoState) {
+      newTodoState.done = !newTodoState.done;
+      setTodoState([...todoState]);
+    }
   };
 
   const removeTodo = (id: number) => {
     setTodoState((prevState) =>
-      prevState.filter((todo: Itodo) => todo.id === id)
+      prevState.filter((todo: Itodo) => todo.id !== id)
     );
   };
 
