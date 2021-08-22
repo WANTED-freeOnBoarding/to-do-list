@@ -6,7 +6,7 @@ https://codesandbox.io/s/long-haze-9v8jt?file=/src/components/todo/TodoService.t
 
 배포 주소 : http://WANTED-freeOnBoarding.github.io/to-do-list
 
-![todolist](https://user-images.githubusercontent.com/60090391/130322319-316aeaa2-431f-44e6-9a9b-acb1ef447868.gif)
+![image](https://user-images.githubusercontent.com/60090391/130357192-5a21f8b5-da12-4965-9ea9-ea8e15198c05.png)
 
 - [x] To do list CRUD 가능
 - [x] 완료 목룍 toggle 형태로 체크 가능
