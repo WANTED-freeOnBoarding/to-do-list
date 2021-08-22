@@ -5,8 +5,7 @@ https://codesandbox.io/s/long-haze-9v8jt?file=/src/components/todo/TodoService.t
 위 링크의 코드를 바탕으로 버그를 수정한 후, 추가 기능을 구현하였습니다.
 
 배포 주소 : http://WANTED-freeOnBoarding.github.io/to-do-list
-
-![image](https://user-images.githubusercontent.com/60090391/130357192-5a21f8b5-da12-4965-9ea9-ea8e15198c05.png)
+![todolist](https://user-images.githubusercontent.com/60090391/130357219-47b4b12b-9d4a-4848-8975-266b4fde82af.gif)
 
 - [x] To do list CRUD 가능
 - [x] 완료 목룍 toggle 형태로 체크 가능
